@@ -1,0 +1,110 @@
+<html>
+<head>
+    <style>
+        * {
+            padding: 0%;
+            border: 0%;
+        }
+        body{
+            font-size: large;
+            background-image: url("https://images.unsplash.com/photo-1521729839347-131a32f9abcb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1pbmltYWwlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60");
+            
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #error-msg{
+            color:  rgb(255, 0, 0);
+            height: 3vh;
+            text-align: center;
+            margin:13px;
+            font-size: 25px;
+        }
+        #login,#register{
+            height: 42vh;
+            /* border: 2px solid black; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        form{
+            flex:1;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 50vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        input[type=text],input[type=password]{
+            border-radius: 50px;
+            height: 30px;
+            border: none;
+            /* padding: 5px; */
+            padding-left: 30px;
+            font-size:16px;
+            width: 30%;
+        }
+        input[type=text]:hover{
+            box-shadow: 0 0 6px rgb(5, 6, 7);
+            border: 1px solid rgb(5, 6, 7);
+        }
+        input[type=password]:hover{
+            box-shadow: 0 0 6px rgba(5, 6, 7,1);
+            border: 1px solid rgb(5, 6, 7);
+        }
+        input[type=submit]{
+            cursor: pointer;
+            width: 5vw;
+            height: 30px;
+            border-radius: 10px;
+            color: rgb(99, 48, 48);
+            border-color:1px solid black;
+            background-color: #cfa97f;
+            
+        }
+        input[type=submit]:hover{
+            transform: scale(1.1);
+            color: black;
+            background-color: #cf995a;
+            box-shadow: 0 0 6px rgb(5, 6, 7);
+            border: 1px solid rgb(5, 6, 7);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;position: relative;">
+        U-D-P
+    </h1>
+    <div id="error-msg">
+        {% if msg %}
+        {{msg}}
+        {% endif %}
+    </div>
+    
+    <div id = "login">
+        <form action="{{ url_for('login') }}" method="POST">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="username" required/>
+            <br>
+            <input type="password" name="password" placeholder="password" required/><br>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+    <div id = "register">
+        <form action="{{ url_for('register') }}" method="POST">
+            <h2>Register</h2>
+            <input type="text" name="username" placeholder="username" required/>
+            <br>
+            <input type="password" name="password" placeholder="password"required/><br>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+</body>
+
+</html>
